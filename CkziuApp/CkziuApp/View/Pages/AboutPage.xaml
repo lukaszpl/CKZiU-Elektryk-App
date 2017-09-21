@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CkziuApp.View.Pages.AboutPage" Title="O aplikacji">
+    <ScrollView Margin="6,6,6,6">
+        <StackLayout>
+            <Image x:Name="Logo" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Oficjalna aplikacja CKZiU Elektryk" FontSize="Large" FontAttributes="Bold"/>
+            <Label Text=""/>
+            <Label Text="Programowanie:" FontAttributes="Bold"/>
+            <Label Text="Łukasz Soroczyński (Aplikacja) (http://csharp-dev.pl/)"/>
+            <Label Text="Dawid Studziński (Web)"/>
+            <Label Text=""/>
+            <Label Text="Grafika:" FontAttributes="Bold"/>
+            <Label Text="Dawid Nastałek"/>
+            <Label Text="Marlena Brzozowicz"/>
+            <Label Text=""/>
+            <Label Text="Błędy i sugestie dot. aplikacji proszę zgłaszać na: admin@csharp-dev.pl" FontAttributes="Bold"/>
+            <Label Text=""/>
+            <Label Text="Oprogramowanie firm trzecich:" FontAttributes="Bold"/>
+            <Label Text="The MVVM Light Toolkit is distributed under the MIT License Copyright (c) GalaSoft Laurent Bugnion 2009 - 2016, laurent@galasoft.ch Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software."/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

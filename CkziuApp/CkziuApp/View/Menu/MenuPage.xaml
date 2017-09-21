@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CkziuApp.View.Menu.MenuPage"
+             Title="Menu">
+    <StackLayout>
+        <Image x:Name="Logo" HorizontalOptions="Center"/>
+        <ListView x:Name="listView" VerticalOptions="FillAndExpand" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell DetailColor="Aqua" TextColor="Black" Text="{Binding Title}" ImageSource="{Binding IconSource}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
