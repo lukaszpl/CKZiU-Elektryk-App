@@ -9,8 +9,11 @@ namespace CkziuApp.View.Pages
     {
         public PlanPage()
         {
-            InitializeComponent();
-            PlanPageViewModel vm = new PlanPageViewModel();
+            InitializeComponent();           
+        }
+        protected override void OnAppearing()
+        {
+            PlanPageViewModel vm = new PlanPageViewModel(Children);
             this.BindingContext = vm;
         }
     }

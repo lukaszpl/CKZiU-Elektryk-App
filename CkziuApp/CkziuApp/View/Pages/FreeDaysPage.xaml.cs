@@ -9,7 +9,10 @@ namespace CkziuApp.View.Pages
     {
         public FreeDaysPage()
         {
-            InitializeComponent();
+            InitializeComponent();           
+        }
+        protected override void OnAppearing()
+        {
             FreeDaysPageViewModel vm = new FreeDaysPageViewModel();
             this.BindingContext = vm;
         }

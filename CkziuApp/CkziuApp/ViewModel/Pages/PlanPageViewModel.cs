@@ -10,7 +10,6 @@ using Xamarin.Forms;
 using CkziuApp.Interfaces;
 using CkziuApp.Logic.XmlPlanStructure;
 
-
 namespace CkziuApp.ViewModel.Pages
 {
     public class PlanPageViewModel : ViewModelBase
@@ -67,6 +66,13 @@ namespace CkziuApp.ViewModel.Pages
             get { return _Title; }
             set { Set(() => Title, ref _Title, value); }
         }
+        private Page _SelectedPage;
+        public Page SelectedPage
+        {
+            get { return _SelectedPage; }
+            set { Set(() => SelectedPage, ref _SelectedPage, value); }
+        }
+        private IList<Page> ChildrenPages;
         #endregion
 
         #region commands
@@ -74,19 +80,39 @@ namespace CkziuApp.ViewModel.Pages
         public ICommand ChooseCommand { get; set; }
         #endregion
 
-        public PlanPageViewModel()
+        public PlanPageViewModel(IList<Page> Childrens)
         {
+            this.ChildrenPages = Childrens;
             IsLoading = false;
             IsListViewsVisible = true;
             RefreshCommand = new RelayCommand(RefreshPlan);
-            ChooseCommand = new RelayCommand(ChooseGroupAsync);
+            ChooseCommand = new RelayCommand(ChooseGroupAsync);       
+            SetStartPageDay();
             Start();
         }
 
+        private void SetStartPageDay()
+        {        
+            DateTime date = DateTime.Now;
+            DayOfWeek dayOfWeek = date.DayOfWeek;
+            if(dayOfWeek.ToString() == "Monday")
+                SelectedPage = ChildrenPages[0];
+            else if (dayOfWeek.ToString() == "Tuesday")
+                SelectedPage = ChildrenPages[1];
+            else if(dayOfWeek.ToString() == "Wednesday")
+                SelectedPage = ChildrenPages[2];
+            else if (dayOfWeek.ToString() == "Thursday")
+                SelectedPage = ChildrenPages[3];
+            else if (dayOfWeek.ToString() == "Friday")
+                SelectedPage = ChildrenPages[4];
+            else
+                SelectedPage = ChildrenPages[0];
+        }
+
         private async void Start()
-        {
+        {           
             IsLoading = true;
-            IsListViewsVisible = false;
+            IsListViewsVisible = false;          
 
             string path = DependencyService.Get<ICrossPlatformDownloadManager>().DefaultPathToDownloadedFiles;
             string finalPath = Path.Combine(path, "plan.xml");

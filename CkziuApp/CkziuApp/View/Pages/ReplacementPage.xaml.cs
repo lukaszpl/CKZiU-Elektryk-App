@@ -13,5 +13,10 @@ namespace CkziuApp.View.Pages
             ReplacementPageViewModel vm = new ReplacementPageViewModel();
             this.BindingContext = vm;
         }
+        protected override void OnAppearing()
+        {
+            ReplacementPageViewModel vm = new ReplacementPageViewModel();
+            this.BindingContext = vm;
+        }
     }
 }

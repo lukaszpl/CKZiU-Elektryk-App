@@ -37,7 +37,7 @@ namespace CkziuApp.ViewModel.Pages
 
         public ReplacementPageViewModel()
         {
-            RefreshCommand = new RelayCommand(RefreshPlan);
+            RefreshCommand = new RelayCommand(RefreshReplacement);
             Start();
         }
 
@@ -63,7 +63,7 @@ namespace CkziuApp.ViewModel.Pages
             IsLoading = false;
         }
 
-        private async void RefreshPlan()
+        private async void RefreshReplacement()
         {
             if (!IsLoading)
             {
