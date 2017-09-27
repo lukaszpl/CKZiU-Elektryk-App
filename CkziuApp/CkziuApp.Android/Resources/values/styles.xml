@@ -22,12 +22,14 @@
     <item name="windowActionModeOverlay">true</item>
 
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
+    <item name="android:colorActivatedHighlight">@color/ListViewSelected</item>
   </style>
-
+  <color name="ListViewSelected">#5aa0c1</color>
+  
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
     <item name="colorAccent">#FF4081</item>
   </style>
-  
+
   <style name="Theme.Splash"
     parent="android:Theme">
     <item name="android:windowBackground">

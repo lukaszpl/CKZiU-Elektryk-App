@@ -17,11 +17,13 @@ namespace CkziuApp.View.Menu
             Logo.Source = ImageSource.FromResource("CkziuApp.Resources.ckziu.png", assembly);
 
             List<MenuItem> menuItems = new List<MenuItem>();
+            menuItems.Add(new MenuItem("Aktualności", ImageSource.FromResource("CkziuApp.Resources.news.png", assembly), typeof(NewsPage)));
             menuItems.Add(new MenuItem("Plan", ImageSource.FromResource("CkziuApp.Resources.plan.png", assembly), typeof(PlanPage)));
             menuItems.Add(new MenuItem("Zastępstwa", ImageSource.FromResource("CkziuApp.Resources.replacement.png", assembly), typeof(ReplacementPage)));
-            menuItems.Add(new MenuItem("Dodatkowe dni wolne", ImageSource.FromResource("CkziuApp.Resources.freedays.png", assembly), typeof(FreeDaysPage)));
+            menuItems.Add(new MenuItem("Dni wolne", ImageSource.FromResource("CkziuApp.Resources.freedays.png", assembly), typeof(FreeDaysPage)));
             menuItems.Add(new MenuItem("O aplikacji", ImageSource.FromResource("CkziuApp.Resources.about.png", assembly), typeof(AboutPage)));
             listView.ItemsSource = menuItems;
+            listView.SelectedItem = menuItems[1];
         }
     }
     public class MenuItem
