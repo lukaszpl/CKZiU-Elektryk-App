@@ -1,8 +1,8 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-
+using Android.Runtime;
+using Android.Content;
 
 namespace CkziuApp.Droid
 {
@@ -11,6 +11,7 @@ namespace CkziuApp.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
+            AndroidEnvironment.UnhandledExceptionRaiser += HandleAndroidException;
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
@@ -18,6 +19,15 @@ namespace CkziuApp.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+        }
+
+        private void HandleAndroidException(object sender, RaiseThrowableEventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(CrashActivity));
+            intent.PutExtra("Error_Text", e.Exception.Message);
+            intent.SetFlags(ActivityFlags.NewTask);
+            this.StartActivity(intent);          
+            Java.Lang.JavaSystem.Exit(0); // Close this app process
         }
     }
 }
