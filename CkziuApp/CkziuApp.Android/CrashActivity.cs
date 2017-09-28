@@ -6,7 +6,7 @@ using Android.Content.PM;
 
 namespace CkziuApp.Droid
 {
-    [Activity( Label = "CrashDialog", LaunchMode = LaunchMode.SingleTask, Theme = "@style/alert_dialog", ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.SmallestScreenSize | ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.Navigation)]
+    [Activity( Label = "CrashDialog", LaunchMode = LaunchMode.SingleTask, Theme = "@style/alert_dialog", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.SmallestScreenSize | ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.Navigation)]
     public class CrashActivity : Activity
     {
         private Button btnRestart;
