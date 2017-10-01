@@ -17,17 +17,7 @@ namespace CkziuApp.Logic
             {
                 list.Add(new ReplacementItem(box.Attribute("day").Value, box.Attribute("date").Value, null, box.Attribute("name").Value, null, null, null, null, true));
                 foreach (var item in box.Descendants("item"))
-                {
-                    if (list[0].No == null)
-                    {
-                        list[0].No = item.Attribute("lesson").Value;
-                        list[0].Teacher = item.Attribute("teacher").Value;
-                        list[0].Group = item.Attribute("group").Value;
-                        list[0].Comments = item.Attribute("comments").Value;
-                        list[0].Content = item.Value;
-                    }
                     list.Add(new ReplacementItem(box.Attribute("day").Value, box.Attribute("date").Value, item.Attribute("lesson").Value, box.Attribute("name").Value, item.Attribute("teacher").Value, item.Attribute("group").Value, item.Attribute("comments").Value, item.Value, false));
-                }
             }
             return list;
         }
